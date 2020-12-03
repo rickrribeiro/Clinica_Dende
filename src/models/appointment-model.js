@@ -35,7 +35,12 @@ getAll = async () => {
 createRule = async (day, hour) => {
     try{
         var obj = await getObj()
-        obj.appointments.push({"id":obj.appointments[obj.appointments.length-1].id+1, "day":day, "hour":hour})
+        obj.appointments.push(
+            {
+                "id":obj.appointments[obj.appointments.length-1]?obj.appointments[obj.appointments.length-1].id+1:1, //verify if there is any rules and set the id
+                "day":day,
+                "hour":hour
+            })
         writeObj(obj)
         return obj.appointments //return appointments
         
