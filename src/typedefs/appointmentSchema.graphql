@@ -1,24 +1,27 @@
-type Hour{
+#TYPE
+type Intervals{ #type for hour intervals
     start: String!
     end: String!
 }
-type Appointment{
+type Appointment{ #appointment rule type
     id: ID!
     day: String!
-    hour: [Hour!]!
+    intervals: [Intervals!]!
 }
 
-
+#QUERY
 type Query{
-    appointments: [Appointment!]!
+    appointments: [Appointment!]! #get all appointments
     
 }
 
-input HourInput {
+#MUTATION
+input IntervalsInput { # input type for hours intervals
     start: String!
     end: String!
 }
 
 type Mutation{
-    createAppointment(day: String!, hour: [HourInput]!) : [Appointment]#hour botar array
+    createAppointment(day: String!, intervals: [IntervalsInput]!) : [Appointment]! #create appointment rules
+    deleteAppointment(id:ID!) : Appointment
 }

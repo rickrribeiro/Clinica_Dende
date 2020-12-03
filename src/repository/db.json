@@ -1,1 +1,1 @@
-{"appointments":[{"id":1,"day":"weekly","hour":[{"start":"22","end":"23"}]},{"id":2,"day":"weekly","hour":[{"start":"22","end":"23"}]},{"id":3,"day":"weekly","hour":[{"start":"22","end":"23"}]}]}
+{"appointments":[{"id":1,"day":"weekly","intervals":[{"start":"22","end":"23"}]},{"id":4,"day":"weekly","intervals":[{"start":"22","end":"23"}]},{"id":5,"day":"weekly","intervals":[{"start":"22","end":"23"}]},{"id":6,"day":"weekly","intervals":[{"start":"22","end":"23"}]}]}
