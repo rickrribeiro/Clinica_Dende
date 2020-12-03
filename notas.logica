@@ -1,0 +1,17 @@
+Checklist:
+- Listar regras de horários para atendimento [CHECK]
+- Cadastrar regras de horários para atendimento
+- Apagar regra de horário para atendimento
+- Listar horários disponíveis dentro de um intervalo
+
+checklist plus:
+- Teste unitário
+- Typescript
+- Documentação
+- Validar cadastro de regras para evitar conflito de horários
+
+
+
+Lembrar:
+- adicionar diario, semanal e dia especifico, depois montar a tabela
+-ver biblioteca dia da semana por data

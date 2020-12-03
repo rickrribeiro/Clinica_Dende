@@ -1,0 +1,19 @@
+type Hour{
+    start: String!
+    end: String!
+}
+type Appointment{
+    id: ID!
+    day: String!
+    hour: [Hour!]!
+}
+
+
+type Query{
+    appointments: [Appointment!]!
+    
+}
+
+type Mutation{
+    createAppointment(day: String!, hour: String!) : Appointment#hour botar array
+}
