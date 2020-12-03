@@ -3,10 +3,10 @@ const appointmentModel = require('../models/appointment-model')
 
 const appointmentsResolver = {
     Query:{
-       appointments:  async() => await appointmentModel.getAll() //get all appointments rules
+       appointments: () =>  appointmentModel.getAll() //get all appointments rules
     },
     Mutation: {
-        createAppointment: () =>{}
+        createAppointment: (_,{day,hour}) => appointmentModel.createRule(day,hour)
     }
 
 }

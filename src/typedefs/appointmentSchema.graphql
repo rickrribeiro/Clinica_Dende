@@ -14,6 +14,11 @@ type Query{
     
 }
 
+input HourInput {
+    start: String!
+    end: String!
+}
+
 type Mutation{
-    createAppointment(day: String!, hour: String!) : Appointment#hour botar array
+    createAppointment(day: String!, hour: [HourInput]!) : [Appointment]#hour botar array
 }

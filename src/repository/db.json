@@ -1,10 +1,1 @@
-{
-    "appointments":[
-        {"id":1,"day":"daily", "hour":[{"start":"22","end":"23"}]},
-        {"id":2,"day":"daily", "hour":[{"start":"22","end":"23"}]},
-        {"id":3,"day":"daily", "hour":[{"start":"22","end":"23"}]},
-        {"id":4,"day":"daily", "hour":[{"start":"22","end":"23"}]},
-        {"id":5,"day":"daily", "hour":[{"start":"22","end":"23"}]},
-        {"id":7,"day":"daily", "hour":[{"start":"22","end":"23"},{"start":"23","end":"24"}]}
-    ]
-} 
+{"appointments":[{"id":1,"day":"daily","hour":[{"start":"22","end":"23"}]},{"id":2,"day":"weekly","hour":[{"start":"22","end":"23"},{"start":"23","end":"24"}]},{"id":3,"day":"weekly","hour":[{"start":"22","end":"23"}]},{"id":4,"day":"weekly","hour":[{"start":"22","end":"23"}]},{"id":5,"day":"weekly","hour":[{"start":"22","end":"23"}]}]}
