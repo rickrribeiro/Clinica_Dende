@@ -3,7 +3,7 @@ type Intervals{ #type for hour intervals
     start: String!
     end: String!
 }
-type Appointment{ #appointment rule type
+type Rule{ #Rule rule type
     id: ID!
     day: String!
     intervals: [Intervals!]!
@@ -11,7 +11,7 @@ type Appointment{ #appointment rule type
 
 #QUERY
 type Query{
-    appointments: [Appointment!]! #get all appointments
+    rules: [Rule!]! #get all Rules
     
 }
 
@@ -22,6 +22,6 @@ input IntervalsInput { # input type for hours intervals
 }
 
 type Mutation{
-    createAppointment(day: String!, intervals: [IntervalsInput]!) : [Appointment]! #create appointment rules
-    deleteAppointment(id:ID!) : Appointment
+    createRule(day: String!, intervals: [IntervalsInput]!) : [Rule]! #create Rule rules
+    deleteRule(id:ID!) : Rule
 }

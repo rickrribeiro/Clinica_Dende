@@ -15,7 +15,7 @@ writeObj = async (data) => {
             if (err) return console.log(err);
             console.log("Regra inserida")
           });
-          return data.appointments
+          return data.rules
     }catch(err){
         console.log(err)
         return err
@@ -27,10 +27,11 @@ removeObjbyId = async (rules, id) => {
       return rule.id != id; 
     });
   }
-//get all appointments
+//get all rules
 getAll = async () => {
     try{
-        return getObj().appointments
+        data = await getObj()
+        return data.rules
     }catch(err){
         console.log(err)
     }
@@ -41,14 +42,15 @@ createRule = async (day, hour) => {
     try{
         
         var obj = await getObj()
-        obj.appointments.push(
+        console.log(obj)
+        obj.rules.push(
             {
-                "id":obj.appointments[obj.appointments.length-1]?obj.appointments[obj.appointments.length-1].id+1:1, //verify if there is any rules and set the id
+                "id":obj.rules[obj.rules.length-1]?obj.rules[obj.rules.length-1].id+1:1, //verify if there is any rules and set the id
                 "day":day,
                 "intervals":hour
             })
         writeObj(obj)
-        return obj.appointments //return appointments
+        return obj.rules //return rules
         
     }catch(err){
         console.log(err)
@@ -61,10 +63,10 @@ createRule = async (day, hour) => {
 deleteRule = async(id) => {
     console.log(id)
     var obj = await getObj()
-    console.log(obj.appointments)
+    console.log(obj.rules)
     console.log("space")
-    obj.appointments = await removeObjbyId(obj.appointments,id);
-    console.log(obj.appointments)
+    obj.rules = await removeObjbyId(obj.rules,id);
+    console.log(obj.rules)
     await writeObj(obj)
 }
 
