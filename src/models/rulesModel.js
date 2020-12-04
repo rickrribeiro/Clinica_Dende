@@ -14,7 +14,6 @@ writeObj = async (data) => {
     try{
         await fs.writeFile(path.resolve(__dirname,'../repository/db.json'), JSON.stringify(data), function (err) {
             if (err) return console.log(err);
-            console.log("Regra inserida")
           });
           return data.rules
     }catch(err){
@@ -36,6 +35,7 @@ getAll = async () => {
         return data.rules
     }catch(err){
         console.log(err)
+        return err
     }
 }
 

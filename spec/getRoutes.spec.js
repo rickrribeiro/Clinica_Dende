@@ -1,9 +1,7 @@
-var axios = require('axios')
-
-console.log("antes")
+const axios = require('axios')
 
 describe('GET routes', () =>{
-   
+  
     it('should get all ', (done) =>{ //get all rules test
         axios({
             url: 'http://localhost:8000',
