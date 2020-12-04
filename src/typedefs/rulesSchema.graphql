@@ -8,20 +8,21 @@ type Rule{ #Rule rule type
     day: String!
     intervals: [Intervals!]!
 }
-
-#QUERY
-type Query{
-    rules: [Rule!]! #get all Rules
-    
-}
-
-#MUTATION
 input IntervalsInput { # input type for hours intervals
     start: String!
     end: String!
 }
 
+#QUERY
+type Query{
+    rules: [Rule!]! #get all Rules
+    rulesByInterval(interval: IntervalsInput!): [Rule]
+}
+
+#MUTATION
+
+
 type Mutation{
-    createRule(day: String!, intervals: [IntervalsInput]!) : [Rule]! #create Rule rules
+    createRule(day: String!, intervals: [IntervalsInput!]!) : [Rule] #create Rule rules
     deleteRule(id:ID!) : Rule
 }

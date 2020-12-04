@@ -1,7 +1,7 @@
-const { create } = require("domain");
+
 const fs=require("fs");
 const path = require("path")
-
+const dateConvert = require('../util/dateConvert')
 //return rules list
 getObj = async () => { 
     var obj =  JSON.parse(fs.readFileSync( path.resolve(__dirname,'../repository/db.json'), 'utf8')); //read the file
@@ -36,7 +36,14 @@ getAll = async () => {
         console.log(err)
     }
 }
-
+// Get rules by interval
+getRulesByInterval = async (data) => {
+   
+    var dt = dateConvert.dateConvert( data.interval.start)
+    console.log(dt)
+    console.log(dt.getDay())
+    return []
+}
 //create a new rule
 createRule = async (day, hour) => {
     try{
@@ -70,4 +77,4 @@ deleteRule = async(id) => {
     await writeObj(obj)
 }
 
-module.exports ={getAll, createRule, deleteRule}
+module.exports ={getAll, createRule, deleteRule, getRulesByInterval}

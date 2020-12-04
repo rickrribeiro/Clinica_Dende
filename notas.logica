@@ -9,7 +9,7 @@ checklist plus:
 - Typescript
 - Documentação
 - Validar cadastro de regras para evitar conflito de horários
-
+- verificar se intervalo do getrulesbyinterval ta no formato correto
 
 
 Lembrar:
