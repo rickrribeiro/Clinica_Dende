@@ -51,6 +51,7 @@ getRulesByInterval = async (data) => {
         dias[1]= dtEnd.getDay()
     }
     var rulesList = await getObj()
+    console.log(rulesList)
     var filteredRules = []
     if(dias[0] > dias[1]){// verifica se vai ter que voltar de sabado(6) para domingo(0)
 
@@ -60,11 +61,21 @@ getRulesByInterval = async (data) => {
                 filteredRules.push(rule)
             }else if(rule.day >= data.interval.start && rule.day <= data.interval.end){ // verifica se a data ta no intervalo
                 filteredRules.push(rule)
-            }else if(false){
-                //colocar as semanais aq
+            }else{ // verifica se é semanal
+                var weekDays = rule.day.split(" ") // cria array com os dias da semana
+                
+                weekDays.some(day =>{
+                    console.log(day+" "+dias[0]+ " "+dias[1])
+                    if(day >= dias[0] && day <= dias[1]){
+                        filteredRules.push(rule)
+                        return true;
+                    }
+                })
+                
             }
         });
     }
+    console.log(filteredRules)
     return filteredRules
 }
 //create a new rule
