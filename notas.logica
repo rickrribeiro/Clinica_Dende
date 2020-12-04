@@ -5,7 +5,7 @@ Checklist:
 - Listar horários disponíveis dentro de um intervalo [CHECK]
 
 checklist plus:
-- Teste unitário
+- Teste unitário [CHECK]
 - Typescript
 - Documentação
 - Validar cadastro de regras para evitar conflito de horários

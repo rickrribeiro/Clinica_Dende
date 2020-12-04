@@ -54,8 +54,24 @@ getRulesByInterval = async (data) => {
     }
     var rulesList = await getObj()
     var filteredRules = []
-    if(dias[0] > dias[1]){// verify if it has to return from saturday(6) to sunday(0)
-
+    if(dias[0] > dias[1]){// verify if it has to return to the begining of the week ex: saturday(6) to sunday(0)
+        rulesList.rules.forEach(rule => {
+            if(rule.day=="daily"){ // verify if its a daily rule
+                filteredRules.push(rule)
+            }else if(rule.day >= data.interval.start && rule.day <= data.interval.end){ // verifica se a data ta no intervalo
+                filteredRules.push(rule)
+            }else{ // verify if its a weekly rule
+                var weekDays = rule.day.split(" ") // create an array with all week days in the rule
+                
+                weekDays.some(day =>{
+                    if(day <= dias[0] && day >= dias[1]){
+                        filteredRules.push(rule)
+                        return true;
+                    }
+                })
+                
+            }
+        });
     }else{
         rulesList.rules.forEach(rule => {
             if(rule.day=="daily"){ // verify if its a daily rule
@@ -103,7 +119,6 @@ deleteRule = async(id) => {
     var obj = await getObj() 
     obj.rules = await removeObjbyId(obj.rules,id);
     await writeObj(obj)
-    console.log(obj.rules)
     return obj.rules
 }
 
