@@ -8,7 +8,7 @@ type Rule{ #Rule rule type
     day: String!
     intervals: [Intervals!]!
 }
-input IntervalsInput { # input type for hours intervals
+input IntervalsInput { # input for hours intervals
     start: String!
     end: String!
 }

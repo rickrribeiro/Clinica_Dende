@@ -2,24 +2,21 @@ Checklist:
 - Listar regras de horários para atendimento [CHECK]
 - Cadastrar regras de horários para atendimento [CHECK partial (colocar weekly, daily  e day)]
 - Apagar regra de horário para atendimento [CHECK]
-- Listar horários disponíveis dentro de um intervalo
+- Listar horários disponíveis dentro de um intervalo [CHECK]
 
 checklist plus:
 - Teste unitário
 - Typescript
 - Documentação
 - Validar cadastro de regras para evitar conflito de horários
-- verificar se intervalo do getrulesbyinterval ta no formato correto
+
 
 
 Lembrar:
-- adicionar diario, semanal e dia especifico, depois montar a tabela
--ver biblioteca dia da semana por data
 - ver returns
--validar day na hora de escrever moment.js weekly daily
 -status
--alterar os appointments pra rules
-- quando chegar (weekly ou daily, dividir por dia e jogar)
+
+
 {
     "appointments":[
        

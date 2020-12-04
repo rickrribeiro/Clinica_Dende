@@ -1,4 +1,5 @@
 
+const { throws } = require("assert");
 const fs=require("fs");
 const path = require("path")
 const dateConvert = require('../util/dateConvert')
@@ -30,6 +31,7 @@ removeObjbyId = async (rules, id) => {
 //get all rules
 getAll = async () => {
     try{
+        
         data = await getObj()
         return data.rules
     }catch(err){
@@ -39,11 +41,11 @@ getAll = async () => {
 
 // Get rules by interval
 getRulesByInterval = async (data) => {
-    var dtStart = dateConvert.dateConvert( data.interval.start) // converter string para date
-    var dtEnd =  dateConvert.dateConvert( data.interval.end) // converter string para date
-    var diffDays = Math.ceil(Math.abs(dtStart.getTime() - dtEnd.getTime()) / (1000 * 3600 * 24)); //diferença entre os dias
-    var dias = [];//vetor duas posições para saber o dia da semana de inicio e o dia da semana de final
-    if(diffDays>=6){//caso tenha mais de 1 semana, logo pega todos os dias
+    var dtStart = dateConvert.dateConvert( data.interval.start) // convert string to date
+    var dtEnd =  dateConvert.dateConvert( data.interval.end) // convert string to date
+    var diffDays = Math.ceil(Math.abs(dtStart.getTime() - dtEnd.getTime()) / (1000 * 3600 * 24)); //difference beetween days
+    var dias = [];//array with the weekdays
+    if(diffDays>=6){//if there is more than a week, get all week days
         dias[0]= 0;
         dias[1]= 6;
     }else{
@@ -51,21 +53,19 @@ getRulesByInterval = async (data) => {
         dias[1]= dtEnd.getDay()
     }
     var rulesList = await getObj()
-    console.log(rulesList)
     var filteredRules = []
-    if(dias[0] > dias[1]){// verifica se vai ter que voltar de sabado(6) para domingo(0)
+    if(dias[0] > dias[1]){// verify if it has to return from saturday(6) to sunday(0)
 
     }else{
         rulesList.rules.forEach(rule => {
-            if(rule.day=="daily"){ // verifica se é uma regra diaria
+            if(rule.day=="daily"){ // verify if its a daily rule
                 filteredRules.push(rule)
             }else if(rule.day >= data.interval.start && rule.day <= data.interval.end){ // verifica se a data ta no intervalo
                 filteredRules.push(rule)
-            }else{ // verifica se é semanal
-                var weekDays = rule.day.split(" ") // cria array com os dias da semana
+            }else{ // verify if its a weekly rule
+                var weekDays = rule.day.split(" ") // create an array with all week days in the rule
                 
                 weekDays.some(day =>{
-                    console.log(day+" "+dias[0]+ " "+dias[1])
                     if(day >= dias[0] && day <= dias[1]){
                         filteredRules.push(rule)
                         return true;
@@ -75,7 +75,6 @@ getRulesByInterval = async (data) => {
             }
         });
     }
-    console.log(filteredRules)
     return filteredRules
 }
 //create a new rule
@@ -83,7 +82,6 @@ createRule = async (day, hour) => {
     try{
         
         var obj = await getObj()
-        console.log(obj)
         obj.rules.push(
             {
                 "id":obj.rules[obj.rules.length-1]?obj.rules[obj.rules.length-1].id+1:1, //verify if there is any rules and set the id
@@ -102,12 +100,8 @@ createRule = async (day, hour) => {
 
 //delete rule
 deleteRule = async(id) => {
-    console.log(id)
-    var obj = await getObj()
-    console.log(obj.rules)
-    console.log("space")
+    var obj = await getObj() 
     obj.rules = await removeObjbyId(obj.rules,id);
-    console.log(obj.rules)
     await writeObj(obj)
 }
 
