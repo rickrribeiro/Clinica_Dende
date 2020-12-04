@@ -19,6 +19,7 @@ Lembrar:
 -validar day na hora de escrever moment.js weekly daily
 -status
 -alterar os appointments pra rules
+- quando chegar (weekly ou daily, dividir por dia e jogar)
 {
     "appointments":[
        

@@ -36,13 +36,36 @@ getAll = async () => {
         console.log(err)
     }
 }
+
 // Get rules by interval
 getRulesByInterval = async (data) => {
-   
-    var dt = dateConvert.dateConvert( data.interval.start)
-    console.log(dt)
-    console.log(dt.getDay())
-    return []
+    var dtStart = dateConvert.dateConvert( data.interval.start) // converter string para date
+    var dtEnd =  dateConvert.dateConvert( data.interval.end) // converter string para date
+    var diffDays = Math.ceil(Math.abs(dtStart.getTime() - dtEnd.getTime()) / (1000 * 3600 * 24)); //diferença entre os dias
+    var dias = [];//vetor duas posições para saber o dia da semana de inicio e o dia da semana de final
+    if(diffDays>=6){//caso tenha mais de 1 semana, logo pega todos os dias
+        dias[0]= 0;
+        dias[1]= 6;
+    }else{
+        dias[0]= dtStart.getDay()
+        dias[1]= dtEnd.getDay()
+    }
+    var rulesList = await getObj()
+    var filteredRules = []
+    if(dias[0] > dias[1]){// verifica se vai ter que voltar de sabado(6) para domingo(0)
+
+    }else{
+        rulesList.rules.forEach(rule => {
+            if(rule.day=="daily"){ // verifica se é uma regra diaria
+                filteredRules.push(rule)
+            }else if(rule.day >= data.interval.start && rule.day <= data.interval.end){ // verifica se a data ta no intervalo
+                filteredRules.push(rule)
+            }else if(false){
+                //colocar as semanais aq
+            }
+        });
+    }
+    return filteredRules
 }
 //create a new rule
 createRule = async (day, hour) => {
