@@ -103,6 +103,8 @@ deleteRule = async(id) => {
     var obj = await getObj() 
     obj.rules = await removeObjbyId(obj.rules,id);
     await writeObj(obj)
+    console.log(obj.rules)
+    return obj.rules
 }
 
 module.exports ={getAll, createRule, deleteRule, getRulesByInterval}
