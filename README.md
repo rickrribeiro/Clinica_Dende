@@ -23,18 +23,18 @@ These instructions will get you a copy of the project up and running on your loc
 npm install
 ```
 
-### Running
+## Running
 
-## Application
+### Application
 
 ```
 npm start
 ```
-## API EndPoints documentation and examples
+### API EndPoints documentation and examples
 
 [Postman Documentation](https://nodejs.org/) *alterar apos finalizar*
 
-## Tests
+### Tests
 
 ```
 npm test
@@ -42,7 +42,7 @@ npm test
 
 
 
-## Authors
+## Author
 
 * **Ricardo Ramos Ribeiro** - [Rickrribeiro](https://github.com/rickrribeiro)
 
