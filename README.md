@@ -39,8 +39,7 @@ npm start
 ```
 npm test
 ```
-
-
+A backup will be created in the repository folder
 
 ## Author
 
