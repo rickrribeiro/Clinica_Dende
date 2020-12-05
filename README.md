@@ -32,7 +32,7 @@ npm start
 ```
 ### API EndPoints documentation and examples
 
-[Postman Documentation](https://nodejs.org/) *alterar apos finalizar*
+[Postman Documentation](https://documenter.getpostman.com/view/10937346/TVmQcarG#intro) 
 
 ### Tests
 
