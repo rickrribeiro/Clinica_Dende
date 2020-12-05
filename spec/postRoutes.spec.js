@@ -8,7 +8,7 @@ describe('POST routes', () =>{
   
     it('create rule ', (done) =>{ //create rule mutation test
         axios({
-            url: 'http://localhost:8000',
+            url: 'http://localhost:4000',
             method: 'post',
             data: {
               query: `
@@ -37,7 +37,7 @@ describe('POST routes', () =>{
 
     it('delete rule', (done) =>{ //delete rule mutation test
         axios({
-            url: 'http://localhost:8000',
+            url: 'http://localhost:4000',
             method: 'post',
             data: {
               query: `

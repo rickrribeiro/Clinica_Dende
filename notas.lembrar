@@ -1,24 +1,11 @@
 Checklist:
 - Listar regras de horários para atendimento [CHECK]
-- Cadastrar regras de horários para atendimento [CHECK partial (colocar weekly, daily  e day)]
+- Cadastrar regras de horários para atendimento [CHECK]
 - Apagar regra de horário para atendimento [CHECK]
 - Listar horários disponíveis dentro de um intervalo [CHECK]
 
 checklist plus:
 - Teste unitário [CHECK]
 - Typescript
-- Documentação
+- Documentação [CHECK]
 - Validar cadastro de regras para evitar conflito de horários
-
-
-
-Lembrar:
-- ver returns
--alterar o get by interval para o formato solicitado
-
-
-{
-    "appointments":[
-       
-    ]
-} 

@@ -4,7 +4,7 @@ describe('GET routes', () =>{
   
     it('should get all ', (done) =>{ //get all rules test
         axios({
-            url: 'http://localhost:8000',
+            url: 'http://localhost:4000',
             method: 'post',
             data: {
               query: `
@@ -29,7 +29,7 @@ describe('GET routes', () =>{
   
     it('should get rules by interval ', (done) =>{ //get rules by interval test
         axios({
-            url: 'http://localhost:8000',
+            url: 'http://localhost:4000',
             method: 'post',
             data: {
               query: `
@@ -40,7 +40,7 @@ describe('GET routes', () =>{
                       start
                       end
                   }
-                  id
+                  
                 }
               
               }
