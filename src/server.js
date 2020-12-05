@@ -10,7 +10,7 @@ const server = new GraphQLServer({
 
 // server configuration
 const options = { 
-    port: 8000
+    port: 4000
 }
 
 //start the server
