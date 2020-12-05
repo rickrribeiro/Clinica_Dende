@@ -17,7 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 2. Download NodeJS
 
-3.To install dependencies, access the project folder run the command:
+3. To install dependencies, access the project folder and run the command:
 
 ```
 npm install
