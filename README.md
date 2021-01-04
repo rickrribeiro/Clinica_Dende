@@ -1,6 +1,5 @@
 # Clinica Dendê
 
-Project for the Cubos recruitment process
 
 ## Getting Started
 
